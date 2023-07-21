@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas - JM</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script defer src="input.js"></script>
+    <script defer src="https://kit.fontawesome.com/bd92ca8629.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="main-title-header">Lista de Tarefas</h1>
+    </header>
+    <main>
+        <section class="container">
+            <div class="container-tarefas">
+                <h2 class="title">Suas Tarefas:</h2>
+                <ul class="lista-tarefas">
+                    <li class="item-tarefa">
+                        <strong>01</strong>
+                        <span>Apenas um teste</span>
+                        <!-- <div class="interation active">
+                            <i class="fa-solid fa-ellipsis"></i>
+                            <ul class="lista-buttons active">
+                                <i class="fa-solid fa-x exit" id="exit"></i>
+                                <li class="btn-item checked">checked</li>
+                                <li class="btn-item excluir">excluir</li>
+                                <li class="btn-item urgente">urgente</li>
+                            </ul>
+                        </div> -->
+                    </li>
+                </ul>
+                <div class="add-item-container">
+                    <button class="btn-add-item">+</button>
+                    <form id="formulario">
+                        <input type="text" name="tarefa" id="input" class="input-add-item"
+                            placeholder="insira nova tarefa...">
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>Desenvolvido por JM</footer>
+</body>
+
+</html>
