@@ -1,7 +1,6 @@
 const form = document.getElementById('formulario');
 let itens = JSON.parse(localStorage.getItem("itens")) || []
 
-
 itens.forEach(item => criarElemento(item))
 
 form.addEventListener("submit", (evento) => {
@@ -35,7 +34,7 @@ function criarElemento(nameTarefa) {
     newItem.dataset.id = nameTarefa.id;
 
     const numeracao = document.createElement('strong')
-    nameTarefa.id < 10 ? numeracao.innerHTML = "0" + (nameTarefa.id + 1) : numeracao.innerHTML = nameTarefa.id + 1
+    nameTarefa.id < 9 ? numeracao.innerHTML = "0" + (nameTarefa.id + 1) : numeracao.innerHTML = nameTarefa.id + 1
 
 
     const text = document.createElement('span')
@@ -66,6 +65,7 @@ function criarElemento(nameTarefa) {
     const listabotao = document.createElement("ul")
     listabotao.classList.add('lista-buttons')
 
+    // transforma em função
     const item1 = document.createElement("li")
     const item2 = document.createElement("li")
     const item3 = document.createElement("li")
@@ -99,10 +99,12 @@ function criarElemento(nameTarefa) {
             estilo.background = '#f5f5f5'
             estilo.color = 'black'
             estilo.textShadow = 'none'
+            estilo.boxShadow = 'none'
         } else {
             estilo.background = 'red'
             estilo.color = 'gold'
             estilo.textShadow = '1px 1px black'
+            estilo.boxShadow = 'inset 0 0 5px black'
         }
     })
 
@@ -112,10 +114,12 @@ function criarElemento(nameTarefa) {
             estilo.background = '#f5f5f5'
             estilo.color = 'black'
             estilo.textShadow = 'none'
+            estilo.boxShadow = 'none'
         } else {
             estilo.background = 'darkgreen'
             estilo.color = 'white'
             estilo.textShadow = '-1px 1px black'
+            estilo.boxShadow = 'inset 0 0 5px black'
         }
     })
 
@@ -147,9 +151,16 @@ function menu(btn) {
     })
 }
 
-// function exit(btn) {
-//     btn.addEventListener('click', () => {
-//         const containerDiv = el.target.parentNode
-//         console.log(containerDiv)
-//     })
-// }
+
+window.addEventListener('click', (el) => {
+    const listaButtons = document.querySelectorAll('.lista-buttons')
+    const openListButtons = document.querySelectorAll('.interation>i')
+
+    listaButtons.forEach(lista => {
+        openListButtons.forEach(openBtn => {
+            if (el.target.classList.contains('fa-ellipsis') != openBtn.classList.contains('fa-ellipsis') && lista != el.target) {
+                lista.classList.remove('active')
+            }
+        })
+    })
+})
